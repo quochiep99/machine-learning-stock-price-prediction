@@ -131,13 +131,11 @@ app.layout = html.Div([
                     style={"textAlign": "center"}),
 
             dcc.Dropdown(id='my-dropdown',
-                         options=[{'label': '^IXIC', 'value': '^IXIC'},
-                                  {'label': 'NIO', 'value': 'NIO'},
-                                  {'label': 'OGEN', 'value': 'OGEN'},
-                                  {'label': 'UPS', 'value': 'UPS'},
-                                  {'label': 'XPEV', 'value': 'XPEV'},
+                         options=[{'label': 'BTC-USD', 'value': 'BTC-USD'},
+                                  {'label': 'ETH-USD', 'value': 'ETH-USD'},
+                                  {'label': 'BNB-USD', 'value': 'BNB-USD'}
                                   ],
-                         multi=True, value=['^IXIC'],
+                         multi=True, value=['BTC-USD'],
                          style={"display": "block", "marginLeft": "auto",
                                 "marginRight": "0", "width": "60%"}),
             dcc.Graph(id='compare')
@@ -196,8 +194,8 @@ app.callback(
     Input("checklist-items", "value"),
 ])
 def update_graph(selected_dropdown, radio_items_value, checklist_value):
-    dropdown = {"^IXIC": "^IXIC", "NIO": "NIO",
-                "OGEN": "OGEN", "UPS": "UPS", "XPEV": "XPEV"}
+    dropdown = {"BTC-USD": "BTC-USD", "ETH-USD": "ETH-USD",
+                "BNB-USD": "BNB-USD"}
     # "XPEV": "XPEV"}
     trace_predict = []
     trace_original = []
